@@ -1,0 +1,17 @@
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\bin\Debug\net8.0\EmployeeSys.DAL.deps.json
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\bin\Debug\net8.0\EmployeeSys.DAL.runtimeconfig.json
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\bin\Debug\net8.0\EmployeeSys.DAL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\bin\Debug\net8.0\EmployeeSys.DAL.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\bin\Debug\net8.0\EmployeeSys.Models.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\bin\Debug\net8.0\EmployeeSys.Models.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.csproj.AssemblyReference.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.AssemblyInfoInputs.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.AssemblyInfo.cs
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.csproj.CoreCompileInputs.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\Employee.32BD792B.Up2Date
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\refint\EmployeeSys.DAL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\EmployeeSys.DAL.genruntimeconfig.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.DAL\obj\Debug\net8.0\ref\EmployeeSys.DAL.dll

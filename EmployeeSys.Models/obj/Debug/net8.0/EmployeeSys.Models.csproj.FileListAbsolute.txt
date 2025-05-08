@@ -1,0 +1,12 @@
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\bin\Debug\net8.0\EmployeeSys.Models.deps.json
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\bin\Debug\net8.0\EmployeeSys.Models.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\bin\Debug\net8.0\EmployeeSys.Models.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.AssemblyInfoInputs.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.AssemblyInfo.cs
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.csproj.CoreCompileInputs.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\refint\EmployeeSys.Models.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\ref\EmployeeSys.Models.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.csproj.AssemblyReference.cache

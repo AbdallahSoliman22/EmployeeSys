@@ -1,0 +1,17 @@
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.BLL.deps.json
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.BLL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.BLL.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.DAL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.Models.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.DAL.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\bin\Debug\net8.0\EmployeeSys.Models.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.csproj.AssemblyReference.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.AssemblyInfoInputs.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.AssemblyInfo.cs
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.csproj.CoreCompileInputs.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\Employee.40C84ED5.Up2Date
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\refint\EmployeeSys.BLL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.pdb
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\ref\EmployeeSys.BLL.dll
