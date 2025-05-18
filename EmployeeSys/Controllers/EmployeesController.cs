@@ -1,6 +1,7 @@
 ﻿using EmployeeSys.BLL.Services;
 using EmployeeSys.Dtos;
 using EmployeeSys.Models;
+using EmployeeSys.Models.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,12 +21,12 @@ namespace EmployeeSys.Controllers
 		}
 		[Authorize(Policy = "AdminOnly")]
 		[HttpPost("add")]
-		public async Task<IActionResult> AddEmployee([FromBody] Employee employee)
+		public async Task<IActionResult> AddEmployee([FromBody] CreateEmployeeDto dto)
 		{
 			if (!ModelState.IsValid)
 				return BadRequest(ModelState);
 
-			var result = await _service.AddEmployeeAsync(employee);
+			var result = await _service.AddEmployeeAsync(dto);
 
 			if (!result.Success)
 				return Conflict(result.Message);
@@ -34,12 +35,12 @@ namespace EmployeeSys.Controllers
 		}
 		[Authorize(Policy = "AdminOnly")]
 		[HttpPut("update/{id}")]
-		public async Task<IActionResult> UpdateEmployee(int id, [FromBody] Employee employee)
+		public async Task<IActionResult> UpdateEmployee(int id, [FromBody] UpdateEmployeeDto dto)
 		{
 			if (!ModelState.IsValid)
 				return BadRequest(ModelState);
 
-			var (success, message) = await _service.UpdateEmployeeAsync(id, employee);
+			var (success, message) = await _service.UpdateEmployeeAsync(id, dto);
 			if (!success)
 				return Conflict(message);
 
@@ -63,9 +64,8 @@ namespace EmployeeSys.Controllers
 			var result = new
 			{
 				employee.Id,
-				employee.EmployeeCode,
-				employee.Name,
-				employee.JobTitle,
+				employee.Code,
+				employee.FullName,
 				employee.IsActive,
 				Salary = expand == "yes" ? new
 				{

@@ -32,11 +32,6 @@ namespace EmployeeSys.DAL
 
 				entity.Property(e => e.Salary)
 					  .HasColumnType("decimal(18,2)");
-
-				entity.HasOne(e => e.User)
-					  .WithOne()
-					  .HasForeignKey<Employee>(e => e.UserId)
-					  .OnDelete(DeleteBehavior.Restrict);
 			});
 			modelBuilder.Entity<RolePermission>()
 			.HasKey(rp => new { rp.RoleId, rp.PermissionId });

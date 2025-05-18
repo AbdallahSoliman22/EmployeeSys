@@ -10,3 +10,4 @@ D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\refint\EmployeeS
 D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.pdb
 D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\ref\EmployeeSys.Models.dll
 D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.csproj.AssemblyReference.cache
+D:\Courses\Work\EmployeeSys\EmployeeSys.Models\obj\Debug\net8.0\EmployeeSys.Models.sourcelink.json

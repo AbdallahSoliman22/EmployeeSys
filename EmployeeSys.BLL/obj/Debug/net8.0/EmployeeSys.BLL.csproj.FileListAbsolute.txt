@@ -15,3 +15,4 @@ D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.dll
 D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\refint\EmployeeSys.BLL.dll
 D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.pdb
 D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\ref\EmployeeSys.BLL.dll
+D:\Courses\Work\EmployeeSys\EmployeeSys.BLL\obj\Debug\net8.0\EmployeeSys.BLL.sourcelink.json

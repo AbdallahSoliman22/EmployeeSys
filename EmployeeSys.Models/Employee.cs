@@ -16,14 +16,13 @@ namespace EmployeeSys.Models
 			public required string EmployeeCode { get; set; }
 
 			[Required]
-			public string? Name { get; set; }
+			public string Name { get; set; }
 
 			public string? JobTitle { get; set; }
 
 			public decimal Salary { get; set; }
 
 			public bool IsActive { get; set; } = true;
-			public string UserId { get; set; } = null!;
-			public IdentityUser User { get; set; } = null!;
+
 		}
 }

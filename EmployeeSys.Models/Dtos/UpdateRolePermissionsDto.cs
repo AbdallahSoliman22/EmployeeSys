@@ -8,13 +8,13 @@ namespace EmployeeSys.Models.Dtos
 {
 	public class UpdateRolePermissionsDto
 	{
-		public string RoleName { get; set; } = null!;
+		public string RoleName { get; set; }
 		public List<string> Permissions { get; set; } = new();
 	}
 
 	public class UpdateUserPermissionsDto
 	{
-		public string UserEmail { get; set; } = null!;
+		public string UserEmail { get; set; } 
 		public List<string> Permissions { get; set; } = new();
 	}
 

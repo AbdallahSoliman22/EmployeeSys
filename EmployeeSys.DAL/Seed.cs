@@ -1,43 +1,34 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// DAL/DbInitializer/Seed.cs
+using Microsoft.AspNetCore.Identity;
 
-namespace EmployeeSys.DAL
+public static class Seed
 {
-	public class Seed
+	public static async Task SeedRolesAndAdminAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
 	{
-		public static async Task SeedAsync(IServiceProvider serviceProvider)
+		string adminEmail = "Abdallah@gmail.com";
+		string adminPassword = "Abdallah123";
+
+		if (!await roleManager.RoleExistsAsync("Admin"))
 		{
-			var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-			var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+			await roleManager.CreateAsync(new IdentityRole("Admin"));
+		}
+		if (!await roleManager.RoleExistsAsync("User"))
+		{
+			await roleManager.CreateAsync(new IdentityRole("User"));
+		}
 
-			if (!await roleManager.RoleExistsAsync("Admin"))
+		var adminUser = await userManager.FindByEmailAsync(adminEmail);
+		if (adminUser == null)
+		{
+			var user = new IdentityUser
 			{
-				await roleManager.CreateAsync(new IdentityRole("Admin"));
-			}
-			if (!await roleManager.RoleExistsAsync("User"))
-			{
-				await roleManager.CreateAsync(new IdentityRole("User"));
-			}
+				UserName = adminEmail,
+				Email = adminEmail,
+				EmailConfirmed = true
+			};
 
-
-			var adminUser = await userManager.FindByEmailAsync("Abdallah@gmail.com");
-			if (adminUser == null)
-			{
-				adminUser = new IdentityUser
-				{
-					UserName = "Abdallah Soliman",
-					Email = "Abdallah@gmail.com",
-					EmailConfirmed = true
-				};
-				await userManager.CreateAsync(adminUser, "Abdallah123");
-				await userManager.AddToRoleAsync(adminUser, "Admin");
-			}
+			await userManager.CreateAsync(user, adminPassword);
+			await userManager.AddToRoleAsync(user, "Admin");
 		}
 	}
 }
-

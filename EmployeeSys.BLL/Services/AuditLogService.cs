@@ -14,11 +14,11 @@ namespace EmployeeSys.BLL.Services
 			_context = context;
 		}
 
-		public async Task LogAsync(string userId, string actionType, string entityName, string? entityId, object? changes)
+		public async Task LogAsync(string userIdentifier, string actionType, string entityName, string? entityId, object? changes)
 		{
 			var log = new AuditLog
 			{
-				UserId = userId,
+				UserIdentifier = userIdentifier,
 				ActionType = actionType,
 				EntityName = entityName,
 				EntityId = entityId,

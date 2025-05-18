@@ -9,19 +9,19 @@ namespace EmployeeSys.Models
 {
 	public class RolePermission
 	{
-		public string RoleId { get; set; } = null!;
-		public IdentityRole Role { get; set; } = null!;
+		public string RoleId { get; set; }
+		public IdentityRole Role { get; set; } 
 
 		public int PermissionId { get; set; }
-		public Permission Permission { get; set; } = null!;
+		public Permission Permission { get; set; } 
 	}
 
 	public class UserPermission
 	{
-		public string UserId { get; set; } = null!;
-		public IdentityUser User { get; set; } = null!;
+		public string UserId { get; set; } 
+		public IdentityUser User { get; set; }
 
 		public int PermissionId { get; set; }
-		public Permission Permission { get; set; } = null!;
+		public Permission Permission { get; set; } 
 	}
 }
