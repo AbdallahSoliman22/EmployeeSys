@@ -1,12 +1,15 @@
+using EmployeeSys.BLL;
 using EmployeeSys.BLL.Services;
-using EmployeeSys.DAL.Repositories.Interfaces;
-using EmployeeSys.DAL.Repositories;
 using EmployeeSys.DAL;
-using Microsoft.EntityFrameworkCore;
+using EmployeeSys.DAL.Repositories;
+using EmployeeSys.DAL.Repositories.Interfaces;
 using EmployeeSys.DAL.UnitOfWork;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,39 +39,13 @@ builder.Services.AddSwaggerGen(c =>
 					Id = "Bearer"
 				}
 			},
-			new string[] {}
+			Array.Empty<string>()
 		}
 	});
 });
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<EmployeeService>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddAuthentication("Bearer")
-	.AddJwtBearer("Bearer", options =>
-	{
-		var config = builder.Configuration.GetSection("Jwt");
-		options.TokenValidationParameters = new TokenValidationParameters
-		{
-			ValidateIssuer = true,
-			ValidateAudience = true,
-			ValidateLifetime = true,
-			ValidateIssuerSigningKey = true,
-
-			ValidIssuer = config["Issuer"],
-			ValidAudience = config["Audience"],
-			IssuerSigningKey = new SymmetricSecurityKey(
-				Encoding.UTF8.GetBytes(config["Key"]!))
-		};
-
-	});
-
-builder.Services.AddAuthorizationBuilder()
-	.AddPolicy("AdminOnly", policy =>
-		policy.RequireRole("Admin"));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 	.AddEntityFrameworkStores<ApplicationDbContext>()
@@ -82,6 +59,52 @@ builder.Services.Configure<IdentityOptions>(options =>
 	options.Password.RequireNonAlphanumeric = false;
 	options.Password.RequiredLength = 6;
 });
+
+builder.Services.AddOptions<JwtOptions>()
+	.Bind(builder.Configuration.GetSection(JwtOptions.SectionName))
+	.Validate(options =>
+		!string.IsNullOrWhiteSpace(options.Key) &&
+		options.Key.Length >= 32 &&
+		!string.IsNullOrWhiteSpace(options.Issuer) &&
+		!string.IsNullOrWhiteSpace(options.Audience) &&
+		options.DurationInMinutes > 0 &&
+		options.RefreshTokenDurationInDays > 0,
+		"Jwt configuration is invalid. Check Key, Issuer, Audience, DurationInMinutes, and RefreshTokenDurationInDays.")
+	.ValidateOnStart();
+
+var jwtOptions = builder.Configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>() ?? new JwtOptions();
+
+builder.Services.AddAuthentication(options =>
+	{
+		options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+		options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+		options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+	})
+	.AddJwtBearer(options =>
+	{
+		options.TokenValidationParameters = new TokenValidationParameters
+		{
+			ValidateIssuer = true,
+			ValidateAudience = true,
+			ValidateLifetime = true,
+			ValidateIssuerSigningKey = true,
+			ClockSkew = TimeSpan.Zero,
+			NameClaimType = ClaimTypes.Name,
+			RoleClaimType = ClaimTypes.Role,
+			ValidIssuer = jwtOptions.Issuer,
+			ValidAudience = jwtOptions.Audience,
+			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Key))
+		};
+	});
+
+builder.Services.AddAuthorizationBuilder()
+	.AddPolicy("AdminOnly", policy =>
+		policy.RequireRole("Admin"));
+
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<AuditLogService>();
 builder.Services.AddHttpContextAccessor();
 
@@ -98,8 +121,8 @@ using (var scope = app.Services.CreateScope())
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

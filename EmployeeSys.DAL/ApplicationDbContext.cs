@@ -20,6 +20,7 @@ namespace EmployeeSys.DAL
 		public DbSet<RolePermission> RolePermissions { get; set; }
 		public DbSet<UserPermission> UserPermissions { get; set; }
 		public DbSet<AuditLog> AuditLogs { get; set; }
+		public DbSet<RefreshToken> RefreshTokens { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -38,6 +39,20 @@ namespace EmployeeSys.DAL
 
 			modelBuilder.Entity<UserPermission>()
 				.HasKey(up => new { up.UserId, up.PermissionId });
+
+			modelBuilder.Entity<RefreshToken>(entity =>
+			{
+				entity.HasIndex(rt => rt.TokenHash)
+					.IsUnique();
+
+				entity.Property(rt => rt.TokenHash)
+					.HasMaxLength(128);
+
+				entity.HasOne(rt => rt.User)
+					.WithMany()
+					.HasForeignKey(rt => rt.UserId)
+					.OnDelete(DeleteBehavior.Cascade);
+			});
 		}
 	}
 }

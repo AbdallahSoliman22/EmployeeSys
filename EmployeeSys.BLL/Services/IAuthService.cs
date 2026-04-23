@@ -10,6 +10,8 @@ namespace EmployeeSys.BLL.Services
 	public interface IAuthService
 	{
 		Task<AuthResponseDto?> AuthenticateAsync(LoginDto loginDto);
+		Task<AuthResponseDto?> RefreshTokenAsync(string refreshToken);
+		Task<bool> RevokeRefreshTokenAsync(string refreshToken);
 		Task<bool> AddRoleToUserAsync(string email, string role);
 		Task<bool> RemoveRoleFromUserAsync(string email, string role);
 	}

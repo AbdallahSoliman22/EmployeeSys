@@ -26,6 +26,28 @@ namespace EmployeeSys.Controllers
 
 			return Ok(result);
 		}
+
+		[AllowAnonymous]
+		[HttpPost("refresh")]
+		public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequestDto request)
+		{
+			var result = await _authService.RefreshTokenAsync(request.RefreshToken);
+			if (result == null)
+				return Unauthorized("Invalid or expired refresh token.");
+
+			return Ok(result);
+		}
+
+		[AllowAnonymous]
+		[HttpPost("revoke")]
+		public async Task<IActionResult> Revoke([FromBody] RevokeRefreshTokenRequestDto request)
+		{
+			var revoked = await _authService.RevokeRefreshTokenAsync(request.RefreshToken);
+			if (!revoked)
+				return NotFound("Refresh token not found or already inactive.");
+
+			return NoContent();
+		}
 	}
 
 }
